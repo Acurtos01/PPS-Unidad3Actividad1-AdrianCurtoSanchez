@@ -54,7 +54,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /home/jmmedinac03/docker/PPS/LABPPS/kali-volume:/root/kali
+      - /home/kali/Documents/PuestaProduccionSegura/ut3/PPS-Unidad3Actividad1-AdrianCurtoSanchez/entorno-vulnerables-adriancurtosanchez/kali-volume:/root/kali
 #    restart: unless-stopped
     networks:
       - labpps-net
@@ -86,8 +86,12 @@ services:
       - directory
     image: docker.io/webpwnized/mutillidae:www
     ports:
-      - 127.0.0.1:84:80
+      - 127.0.0.1:80:80
+      - 127.0.0.1:8080:80
       - 127.0.0.1:443:443
+      - 127.0.0.2:80:80
+      - 127.0.0.2:8080:80
+      - 127.0.0.2:443:443
     networks:
       - datanet
       - labpps-net
@@ -124,4 +128,4 @@ volumes:
   dvwa_db_data:
   ldap_data:
   ldap_config:
-
+    
