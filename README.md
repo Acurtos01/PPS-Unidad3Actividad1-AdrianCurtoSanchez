@@ -91,4 +91,32 @@ Podemos gestionar desde el entorno grágico PhpLdapAdmin el servicio LDAP en la 
 ![PhpLdapAdmin](images/php-ldap-admin.png)
 
 ## Entornos pruebas
+Creamos un entorno de pruebas con el stak LAMP (Linux Apache MariaDB PHP). Para ello emplearemos el repositorio https://github.com/sprintcube/docker-compose-lamp.
 
+Solo tenemos que seguir las instrucciones del repsitorio ejecutando los siguientes comandos:
+```
+git clone https://github.com/sprintcube/docker-compose-lamp.git
+cd docker-compose-lamp/
+cp sample.env .env
+// modify sample.env as needed
+docker compose up -d
+// visit localhost
+```
+El comando `git clone https://github.com/sprintcube/docker-compose-lamp.git` descarga el repositorio.
+`cd docker-compose-lamp/` nos situa en la carpeta que se crea con el contenido del repositorio.
+`cp sample.env .env` realiza una copia del fichero de las variables de entorno de ejemplo, creando el fichero ".env" el cual modificaremos para cambiar puertos, contraseñas, etc.
+Y con `docker compose up -d` levantamos los servicios.
+
+![LAMP init](images/lamp-init.png)
+
+Tenemos acceso a **Apache2** en la URL http://127.0.0.1:80.
+
+![Apache2](images/apache2.png)
+
+Acceso a **PHPMyAdmin** en la URL http://localhost:8080.
+
+![PHPMyAdmin](images/phpmyadmin-lamp.png)
+
+Acceso a **Redis** en la URL http://127.0.0.1:6379 pero este servicio no tiene entorno gráfico.
+
+Y ya tenemos listo nuestro entorno de pruebas.
